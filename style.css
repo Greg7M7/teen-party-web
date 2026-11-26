@@ -1234,3 +1234,31 @@ select:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
+
+/* Allow full vertical scrolling on mobile and give bottom breathing room */
+html,
+body {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: max(32px, env(safe-area-inset-bottom));
+}
+
+/* Prevent inner cards/containers from clipping bottom links */
+.container,
+.content,
+.card,
+.modal,
+main,
+section {
+  max-height: none;
+  overflow: visible;
+}
+
+/* Make links like Instagram easy to tap without accidental clipping */
+a {
+  display: inline-block;
+  padding: 2px 0;
+}
