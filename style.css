@@ -1210,3 +1210,27 @@ button {
 .dev-single-tile {
     scroll-behavior: auto !important;
 }
+
+/* Remove blue tap highlight on mobile / touch screens */
+*,
+*::before,
+*::after {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus,
+a:focus,
+[role="button"]:focus,
+input:focus,
+select:focus {
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
