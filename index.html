@@ -1,0 +1,663 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teen Party — Dynasty Beach Pass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ==========================================
+       SCENE 1: OPENING LANDING PAGE
+       ========================================== -->
+    <section class="video-intro" id="videoIntro" aria-label="Event landing screen">
+        <div class="intro-media">
+            <div class="intro-fallback-bg"></div>
+            <video class="intro-video" id="promoVideo" autoplay muted loop playsinline></video>
+            <div class="intro-shade"></div>
+        </div>
+
+        <div class="intro-top">
+            <span class="intro-tag">DYNASTY BEACH • 15 NOV 2026</span>
+            
+        </div>
+
+        <div class="intro-center">
+            <p class="intro-eyebrow">YOU ARE INVITED</p>
+            <h1 class="intro-headline">TEEN PARTY</h1>
+            <p class="intro-sub">Sunset Beach Experience • 12:00 – 6:00</p>
+        </div>
+
+        <div class="intro-bottom">
+            <button type="button" class="enter-pass-btn" id="openInviteBtn">
+                OPEN INVITATION &amp; TICKET →
+            </button>
+            <span class="landing-city">DAR ES SALAAM</span>
+        </div>
+    </section>
+
+    <!-- Continuous Background Soundtrack (50% device volume) -->
+    <audio id="bgMusic" loop autoplay preload="none"></audio>
+
+    <!-- ==========================================
+       SCENE 2: DEDICATED SECTION VIEWS + CIRCULAR NAV
+       ========================================== -->
+    <div class="beach-backdrop"></div>
+
+    <div class="invite-stage" id="inviteStage">
+        <div class="top-glass-bar">
+            <span class="stage-plain-title">TEEN PARTY — DYNASTY BEACH PASS</span>
+            <button type="button" class="glass-home-btn" id="homeBtn">HOME</button>
+        </div>
+
+        <div class="dashboard-shell">
+            <!-- Circular Options: Left Rail on Desktop, Fixed Bottom Bar on Mobile -->
+            <nav class="circle-nav" aria-label="Pass sections">
+                <button type="button" class="circle-opt is-active" data-view="info">
+                    <span class="circle-btn" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <line x1="12" y1="10" x2="12" y2="16"></line>
+                            <circle cx="12" cy="7" r="1" fill="currentColor" stroke="none"></circle>
+                        </svg>
+                    </span>
+                    <span class="circle-label">Event Info</span>
+                </button>
+                <button type="button" class="circle-opt" data-view="ticket">
+                    <span class="circle-btn" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1a2 2 0 0 0 0-4V9z"></path>
+                            <line x1="13" y1="7" x2="13" y2="17" stroke-dasharray="2 2"></line>
+                        </svg>
+                    </span>
+                    <span class="circle-label">Buy Ticket</span>
+                </button>
+                <button type="button" class="circle-opt" data-view="timeplan">
+                    <span class="circle-btn" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="13" r="8"></circle>
+                            <polyline points="12 9 12 13 15 15"></polyline>
+                            <line x1="9" y1="2" x2="15" y2="2"></line>
+                        </svg>
+                    </span>
+                    <span class="circle-label">Time Plan</span>
+                </button>
+                <button type="button" class="circle-opt" data-view="dress">
+                    <span class="circle-btn" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"></path>
+                            <path d="M19 15l.8 1.9 1.9.8-1.9.8L19 20.3l-.8-1.9-1.9-.8 1.9-.8L19 15z"></path>
+                        </svg>
+                    </span>
+                    <span class="circle-label">Dress &amp; Rules</span>
+                </button>
+                <button type="button" class="circle-opt" data-view="map">
+                    <span class="circle-btn" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 21s-6-5.35-6-11a6 6 0 1 1 12 0c0 5.65-6 11-6 11z"></path>
+                            <circle cx="12" cy="10" r="2.2"></circle>
+                        </svg>
+                    </span>
+                    <span class="circle-label">Venue Map</span>
+                
+                <button type="button" class="circle-opt" data-view="developer">
+                    <span class="circle-btn" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                            <line x1="14" y1="4" x2="10" y2="20"></line>
+                        </svg>
+                    </span>
+                    <span class="circle-label">Developer</span>
+                </button>
+            </button>
+            </nav>
+
+            <main class="pass-card" id="invitationPage">
+                <!-- VIEW 1: EVENT INFO -->
+                <section class="page-view is-active" data-page="info" aria-label="Event info">
+                    <div class="top-bar">
+                        <span class="pass-badge">
+                            <span class="live-dot"></span>
+                            EVENT INFO
+                        </span>
+                        <span class="session-label">DAR ES SALAAM</span>
+                    </div>
+
+                    <div class="poster-window">
+                        <h2 class="poster-title" id="eventTitle">Teen Party</h2>
+                        <p class="poster-tagline">Games, battles, music &amp; sunset vibes on the sand.</p>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <div class="info-label">Date</div>
+                            <div class="info-value" id="eventDate">15 Nov 2026</div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-label">Time</div>
+                            <div class="info-value" id="eventTime">12:00 – 6:00</div>
+                            <div class="info-sub" id="timeNote">Schedule subject to update</div>
+                        </div>
+
+                        <div class="info-box wide">
+                            <div>
+                                <div class="info-label">Venue</div>
+                                <div class="info-value" id="eventVenue">Dynasty Beach</div>
+                            </div>
+                            <span class="age-pill">AGES 13–29 ONLY</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW 2: BUY TICKET -->
+                <section class="page-view" data-page="ticket" aria-label="Buy ticket">
+                    <div class="top-bar">
+                        <span class="pass-badge">
+                            <span class="live-dot"></span>
+                            Ticket Pass
+                        </span>
+                        <span class="session-label">DYNASTY BEACH</span>
+                    </div>
+
+                    <aside class="pass-stub">
+                        <div class="price-card">
+                            <div class="info-label">Standard Entry Pass</div>
+                            <div class="price-amount"><span id="ticketPrice">20,000</span> <span>TSH</span></div>
+                        </div>
+
+                        <div class="barcode-box" aria-hidden="true">
+                            <div class="barcode-lines"></div>
+                            <div class="barcode-number">DB-15112026-TP20K</div>
+                        </div>
+
+                        <a id="checkoutButton" class="buy-button" href="#soon">
+                            BUY TICKET • 20,000 TSH
+                        </a>
+
+                        <p class="gate-caption" id="checkoutCaption">
+                            Ticket sales open soon. Save your confirmation pass for entry at Dynasty Beach.
+                        </p>
+                    </aside>
+                </section>
+
+                <!-- VIEW 3: TIME PLAN -->
+                <section class="page-view" data-page="timeplan" aria-label="Time plan">
+                    <div class="top-bar">
+                        <span class="pass-badge">
+                            <span class="live-dot"></span>
+                            Event Schedule
+                        </span>
+                        <span class="session-label">12:00 – 6:00</span>
+                    </div>
+
+                    <h2 class="section-heading">Time Plan</h2>
+                    <table class="stub-timeplan-table">
+                        <tbody id="stubTimePlanRows"></tbody>
+                    </table>
+                </section>
+
+                <!-- VIEW 4: DRESS CODE & RULES -->
+                <section class="page-view" data-page="dress" aria-label="Dress code and party rules">
+                    <div class="top-bar">
+                        <span class="pass-badge">
+                            <span class="live-dot"></span>
+                            Dress Code &amp; Rules
+                        </span>
+                        <span class="age-pill">AGES 13–29 ONLY</span>
+                    </div>
+
+                    <h2 class="section-heading">Dress Code &amp; Party Rules</h2>
+
+                    <div class="dress-page-grid">
+                        <div class="dress-visual-frame">
+                            <img id="dressCodeVisual" class="dress-visual-img" src="./image_363bf190.jpg"
+                                alt="Teen Party Dress Code: White top paired with any bottom" />
+                        </div>
+
+                        <div class="dress-details-col">
+                            <div class="detail-card">
+                                <div class="detail-heading">Dress Code</div>
+                                <p class="detail-desc" id="dressDescription">
+                                    Wear a white shirt on top with any cloth at the rest.
+                                </p>
+                            </div>
+
+                            <div class="detail-card">
+                                <div class="detail-heading">Party Rules</div>
+                                <ul class="rules-list-clean" id="rulesList">
+  <li>No alcohol taking</li>
+  <li>No taking discriminative pics</li>
+  <li>Respect each others</li>
+  <li>Others will be notified at the party</li>
+</ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW 5: VENUE MAP -->
+                <section class="page-view" data-page="map" aria-label="Venue map">
+                    <div class="top-bar">
+                        <span class="pass-badge">
+                            <span class="live-dot"></span>
+                            Location
+                        </span>
+                        <span class="session-label">UNUNIO, DAR ES SALAAM</span>
+                    </div>
+
+                    <h2 class="section-heading">Venue Map</h2>
+
+                    <div class="venue-map">
+                        <iframe id="mapEmbed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?q=Dynasty%20Beach%20Resort%20Ununio&t=k&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
+                        <div class="map-bar">
+                            <span>Dynasty Beach • Satellite View</span>
+                            <a id="mapLink"
+                                href="https://www.google.com/maps/search/?api=1&query=Dynasty+Beach+Resort+Ununio"
+                                target="_blank" rel="noopener noreferrer">Open Maps →</a>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="contact-strip">
+                    </footer>
+            </main>
+        </div>
+</div>
+
+    <script>
+        const EVENT = {
+            title: "Teen Party",
+            date: "15 Nov 2026",
+            time: "12:00 – 6:00",
+            timeNote: "Schedule subject to update",
+            venue: "Dynasty Beach",
+            price: "20,000",
+            contactUrl: "https://www.instagram.com/lexnex7470/",
+            deviceVolumeRatio: 0.5,
+            audioFileUrl: "",
+            videoUrl: "",
+            photoUrl: "./image_3cde5dc4.jpg",
+            dressCodeImageUrl: "./image_363bf190.jpg",
+            ticketUrl: "#",
+            mapSearch: "Dynasty Beach Resort Ununio",
+            timePlan: [
+                { time: "12:00–1:00", activity: "Guest arrival, registration and music" },
+                { time: "1:00–1:30", activity: "Boys vs Girls challenges" },
+                { time: "1:30–2:00", activity: "Water Battle" },
+                { time: "2:00–2:45", activity: "Food and refreshments" },
+                { time: "2:45–3:15", activity: "Dance competition" },
+                { time: "3:15–3:45", activity: "Singing competition" },
+                { time: "3:45–4:30", activity: "Interviews and entertainment" },
+                { time: "4:30–5:00", activity: "Free dancing and socializing" },
+                { time: "5:00–6:00", activity: "Sunset session and grand finale" }
+            ],
+            rules: [
+                
+                
+                ]
+        };
+
+        document.documentElement.style.setProperty('--beach-photo', `url('${EVENT.photoUrl}')`);
+        const videoEl = document.getElementById('promoVideo');
+        if (EVENT.videoUrl) {
+            videoEl.src = EVENT.videoUrl;
+        }
+        const dressVisualEl = document.getElementById('dressCodeVisual');
+        if (EVENT.dressCodeImageUrl) {
+            dressVisualEl.src = EVENT.dressCodeImageUrl;
+        }
+
+        const bgMusic = document.getElementById('bgMusic');
+        if (EVENT.audioFileUrl) {
+            bgMusic.src = EVENT.audioFileUrl;
+        }
+        bgMusic.volume = EVENT.deviceVolumeRatio;
+
+        function playSong() {
+            if (!bgMusic.src) return;
+            bgMusic.volume = EVENT.deviceVolumeRatio;
+            if (bgMusic.paused) {
+                bgMusic.play().catch(() => { });
+            }
+        }
+
+        playSong();
+        ['pointerdown', 'touchstart', 'click', 'keydown'].forEach((evt) =>
+            document.addEventListener(evt, playSong, { passive: true }));
+
+        const videoIntro = document.getElementById('videoIntro');
+        const inviteStage = document.getElementById('inviteStage');
+        const openInviteBtn = document.getElementById('openInviteBtn');
+        const homeBtn = document.getElementById('homeBtn');
+        const circleButtons = document.querySelectorAll('.circle-opt');
+        const pageViews = document.querySelectorAll('.page-view');
+
+        function openSectionPage(viewName) {
+            playSong();
+            videoIntro.classList.add('is-hidden');
+            inviteStage.classList.add('is-visible');
+            videoEl.pause();
+
+            circleButtons.forEach((btn) => {
+                btn.classList.toggle('is-active', btn.dataset.view === viewName);
+            });
+
+            pageViews.forEach((view) => {
+                view.classList.toggle('is-active', view.dataset.page === viewName);
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function enterLandingScene() {
+            playSong();
+            inviteStage.classList.remove('is-visible');
+            videoIntro.classList.remove('is-hidden');
+            videoEl.currentTime = 0;
+            videoEl.play().catch(() => { });
+        }
+
+        openInviteBtn.addEventListener('click', () => openSectionPage('info'));
+        homeBtn.addEventListener('click', enterLandingScene);
+
+        circleButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                openSectionPage(btn.dataset.view);
+            });
+        });
+
+        document.getElementById('eventTitle').textContent = EVENT.title;
+        document.getElementById('eventDate').textContent = EVENT.date;
+        document.getElementById('eventTime').textContent = EVENT.time;
+        document.getElementById('timeNote').textContent = EVENT.timeNote;
+        document.getElementById('eventVenue').textContent = EVENT.venue;
+        document.getElementById('ticketPrice').textContent = EVENT.price;
+
+        const stubRows = document.getElementById('stubTimePlanRows');
+        EVENT.timePlan.forEach((item) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="stub-slot-time">${item.time}</td>
+                <td class="stub-slot-activity">${item.activity}</td>
+            `;
+            stubRows.appendChild(tr);
+        });
+
+        const rulesList = document.getElementById('rulesList');
+        EVENT.rules.forEach((rule) => {
+            const li = document.createElement('li');
+            li.textContent = rule;
+            rulesList.appendChild(li);
+        });
+
+        const query = encodeURIComponent(EVENT.mapSearch);
+        document.getElementById('mapEmbed').src = `https://maps.google.com/maps?q=${query}&t=k&z=16&ie=UTF8&iwloc=&output=embed`;
+        document.getElementById('mapLink').href = `https://www.google.com/maps/search/?api=1&query=${query}`;
+
+        const buyBtn = document.getElementById('checkoutButton');
+        const caption = document.getElementById('checkoutCaption');
+
+        if (EVENT.ticketUrl && EVENT.ticketUrl !== "#") {
+            buyBtn.href = EVENT.ticketUrl;
+            buyBtn.target = "_blank";
+            buyBtn.rel = "noopener";
+            buyBtn.textContent = `BUY TICKET • ${EVENT.price} TSH`;
+            caption.textContent = "You will be taken to secure checkout. Keep your QR pass ready at the gate.";
+        } else {
+            buyBtn.textContent = `TICKETS OPENING SOON • ${EVENT.price} TSH`;
+            buyBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                alert("Online ticket checkout is opening shortly. Check back soon!");
+            });
+        }
+    </script>
+<script>
+(function () {
+    var devHtml = [
+        '<article class="detail-card dev-single-tile">',
+        '  <h2 class="detail-heading">ABOUT THE DEVELOPER</h2>',
+        '  <p class="detail-desc">Bright Bartholomew Mwacha is a 16-year-old self-taught software developer, tech innovator, and financial markets trader based in Arusha, Tanzania. Driven by a passion for building impactful digital solutions, Bright represents the next generation of young Tanzanian tech changemakers—bridging the gap between modern technology and financial empowerment.</p>',
+        '  <p class="detail-desc">Beyond writing code and crafting user-focused applications, Bright is an active trader in both the Tanzanian (DSE) and international stock markets, combining analytical thinking with real-world market experience to build smarter tools for the future.</p>',
+        '  <h2 class="detail-heading dev-subhead">SUPPORT THE DEVELOPER</h2>',
+        '  <p class="detail-desc">Every contribution directly supports Bright\'s ongoing projects, learning tools, and mission to drive tech innovation in Tanzania. You can send financial support via mobile money at <strong>Airtel Money:</strong> <a href="tel:+255785515950">+255 785 515 950</a> (Simphorose Paul Kimario).</p>',
+        '  <p class="detail-desc">Note: Once you have completed a transaction, please send a quick message or receipt via WhatsApp, Telegram, or Email so the developer can personally acknowledge and thank you.</p>',
+        '  <h2 class="detail-heading dev-subhead">CONNECT &amp; COLLABORATE</h2>',
+        '  <p class="detail-desc">Whether you want to collaborate on a project, discuss tech and trading, or share feedback, feel free to reach out directly through any of the channels below:</p>',
+        '  <p class="detail-desc"><strong>Email:</strong> <a href="mailto:fridaytechs101@gmail.com">fridaytechs101@gmail.com</a> &bull; <strong>WhatsApp:</strong> <a href="https://wa.me/255753515959" target="_blank" rel="noopener noreferrer">+255 753 515 959</a> &bull; <strong>Telegram:</strong> <a href="https://t.me/Nex" target="_blank" rel="noopener noreferrer">Nex</a> &bull; <strong>Instagram:</strong> <a href="https://www.instagram.com/Lexnex7470/" target="_blank" rel="noopener noreferrer">@Lexnex7470</a></p>',
+        '</article>'
+    ].join('\n');
+
+    function getPassCard() {
+        var card = document.querySelector('.pass-card, .ticket-card, .glass-card, .pass-body, .panel-container');
+        if (!card) {
+            var lexLink = Array.from(document.querySelectorAll('a, p, div, section')).find(function (el) {
+                return el.children.length === 0 && /Lexnex7470/i.test(el.textContent);
+            });
+            if (lexLink) {
+                card = lexLink.closest('section, article, main, div');
+            }
+        }
+        return card;
+    }
+
+    function ensureDevElement(card) {
+        var existing = card.querySelector('.dev-single-tile');
+        if (existing) return existing;
+        var wrapper = document.createElement('div');
+        wrapper.innerHTML = devHtml.trim();
+        var tile = wrapper.firstElementChild;
+        tile.style.display = 'none';
+        card.appendChild(tile);
+        return tile;
+    }
+
+    function showDeveloperCard() {
+        var devBtn = document.querySelector('.circle-opt[data-view="developer"]');
+        var card = getPassCard();
+        if (!devBtn || !card) return;
+
+        var tile = ensureDevElement(card);
+
+        Array.from(card.children).forEach(function (child) {
+            if (child === tile || child.tagName === 'SCRIPT') return;
+            if (child.dataset.devHidden !== '1') {
+                child.dataset.prevDisplay = child.style.display || '';
+                child.dataset.devHidden = '1';
+                child.style.display = 'none';
+            }
+        });
+
+        tile.style.display = '';
+
+        document.querySelectorAll('.circle-nav .circle-opt').forEach(function (btn) {
+            btn.classList.toggle('is-active', btn === devBtn);
+        });
+    }
+
+    function hideDeveloperCard() {
+        var devBtn = document.querySelector('.circle-opt[data-view="developer"]');
+        var card = getPassCard();
+        if (devBtn) devBtn.classList.remove('is-active');
+        if (!card) return;
+
+        var tile = card.querySelector('.dev-single-tile');
+        if (tile) tile.style.display = 'none';
+
+        Array.from(card.children).forEach(function (child) {
+            if (child.dataset.devHidden === '1') {
+                child.style.display = child.dataset.prevDisplay || '';
+                delete child.dataset.devHidden;
+                delete child.dataset.prevDisplay;
+            }
+        });
+    }
+
+    document.addEventListener('click', function (e) {
+        var navBtn = e.target.closest('.circle-nav .circle-opt');
+        if (navBtn) {
+            if (navBtn.getAttribute('data-view') === 'developer') {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                showDeveloperCard();
+            } else {
+                hideDeveloperCard();
+            }
+            return;
+        }
+
+        var clickedLinkOrBtn = e.target.closest('a, button');
+        if (clickedLinkOrBtn && /home/i.test(clickedLinkOrBtn.textContent.trim())) {
+            hideDeveloperCard();
+        }
+    }, true);
+
+    window.addEventListener('hashchange', hideDeveloperCard);
+})();
+</script>
+<script>
+(function () {
+    function setupScrollBadge() {
+        var badge = document.querySelector('.mobile-scroll-badge');
+        if (!badge) {
+            badge = document.createElement('div');
+            badge.className = 'mobile-scroll-badge';
+            badge.setAttribute('aria-hidden', 'true');
+            badge.innerHTML = '<span>Scroll for more</span><span class="scroll-arrow">&darr;</span>';
+            document.body.appendChild(badge);
+        }
+
+        function findActiveScroller() {
+            var nav = document.querySelector('.circle-nav');
+            if (!nav || !nav.nextElementSibling) return null;
+            var card = nav.nextElementSibling;
+
+            // Check card itself or any visible scrollable descendant (including .dev-single-tile)
+            var candidates = [card].concat(Array.from(card.querySelectorAll('*')));
+            for (var i = 0; i < candidates.length; i++) {
+                var el = candidates[i];
+                if (el.offsetParent === null) continue;
+                if (el.scrollHeight - el.clientHeight > 12) {
+                    return el;
+                }
+            }
+            return card;
+        }
+
+        function updateBadge() {
+            if (window.innerWidth > 768) {
+                badge.classList.remove('is-visible');
+                return;
+            }
+            var scroller = findActiveScroller();
+            if (!scroller) {
+                badge.classList.remove('is-visible');
+                return;
+            }
+            var hasOverflow = scroller.scrollHeight - scroller.clientHeight > 12;
+            var nearBottom = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 12;
+            badge.classList.toggle('is-visible', hasOverflow && !nearBottom);
+        }
+
+        // Capture scroll events from any inner container
+        document.addEventListener('scroll', updateBadge, true);
+        window.addEventListener('resize', updateBadge);
+
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('.circle-nav .circle-opt') || e.target.closest('a, button')) {
+                setTimeout(updateBadge, 40);
+                setTimeout(updateBadge, 200);
+            }
+        });
+
+        var badgeTimer = null;
+        function scheduleBadgeUpdate() {
+            if (badgeTimer) return;
+            badgeTimer = setTimeout(function () {
+                badgeTimer = null;
+                updateBadge();
+            }, 80);
+        }
+
+        new MutationObserver(function (mutations) {
+            for (var i = 0; i < mutations.length; i++) {
+                if (mutations[i].target !== badge) {
+                    scheduleBadgeUpdate();
+                    break;
+                }
+            }
+        }).observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['class', 'hidden', 'style']
+        });
+
+        setTimeout(updateBadge, 120);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupScrollBadge);
+    } else {
+        setupScrollBadge();
+    }
+})();
+</script>
+<script>
+(function () {
+    function resetToTopOnNav() {
+        var html = document.documentElement;
+        var prevBehavior = html.style.scrollBehavior;
+        html.style.scrollBehavior = 'auto';
+
+        // Reset main page / window scroll
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
+        // Reset glass card and any inner scrollable containers
+        var nav = document.querySelector('.circle-nav');
+        if (nav && nav.nextElementSibling) {
+            var card = nav.nextElementSibling;
+            card.scrollTop = 0;
+            card.scrollLeft = 0;
+
+            card.querySelectorAll('*').forEach(function (el) {
+                if (el.scrollTop > 0) el.scrollTop = 0;
+                if (el.scrollLeft > 0) el.scrollLeft = 0;
+            });
+        }
+
+        html.style.scrollBehavior = prevBehavior || '';
+    }
+
+    document.addEventListener('click', function (e) {
+        var opt = e.target.closest('.circle-nav .circle-opt, .circle-btn, .circle-label, [data-section], [href^="#"]');
+        if (!opt) return;
+
+        // Run immediately, on next frame, and shortly after DOM/tab updates
+        resetToTopOnNav();
+        requestAnimationFrame(resetToTopOnNav);
+        setTimeout(resetToTopOnNav, 50);
+        setTimeout(resetToTopOnNav, 180);
+    }, true);
+
+    window.addEventListener('hashchange', function () {
+        resetToTopOnNav();
+        setTimeout(resetToTopOnNav, 60);
+    });
+})();
+</script>
+</body>
+
+</html>
