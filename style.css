@@ -1271,3 +1271,12 @@ a {
         padding-bottom: 120px !important;
     }
 }
+
+/* Ensure full-page mobile scroll and clear room below Instagram link */
+@media (max-width: 768px) {
+    .circle-nav + * {
+        max-height: none !important;
+        overflow: visible !important;
+        padding-bottom: 120px !important;
+    }
+}
